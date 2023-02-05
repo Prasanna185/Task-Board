@@ -1,0 +1,73 @@
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+
+  &Item {
+    padding: 0 1.2rem;
+    height: 3.2rem;
+    text-align: center;
+    margin: auto 0.4rem;
+    color: var(--secondary-text-color);
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.01071rem;
+    border-radius: 1.6rem;
+    line-height: 3.2rem;
+    font-size: 1.4rem;
+    min-width: 3.2rem;
+
+    &:hover {
+      background-color: var(--background-color);
+      cursor: pointer;
+    }
+
+    &Arrow {
+      &::before {
+        position: relative;
+        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+        content: '';
+        /* By using an em scale, the arrows will size with the font */
+        display: inline-block;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-right: 0.12rem solid var(--secondary-text-color);
+        border-top: 0.12rem solid var(--secondary-text-color);
+      }
+
+      &Left {
+        transform: rotate(-135deg) translate(-50%);
+      }
+
+      &Right {
+        transform: rotate(45deg);
+      }
+    }
+
+    &Disabled {
+      pointer-events: none;
+      opacity: 0.25;
+
+      &Arrow::before {
+        border-right: 0.12rem solid var(--background-color);
+        border-top: 0.12rem solid var(--background-color);
+      }
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+
+    &Dots:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+
+    &Selected {
+      background-color: var(--button-hover);
+    }
+  }
+}
